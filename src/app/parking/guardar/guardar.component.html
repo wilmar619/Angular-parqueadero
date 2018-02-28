@@ -1,12 +1,12 @@
 
 <div class="container">
     <div class="row">
-      <div class="col">
+        <div class="col-md-4 col-md-offset-4 ">
           <form novalidate [formGroup]="carroForm" (ngSubmit)="onSubmit()">
            
-              <div class="form-group letra">
-                <label>GUARDAR CARRO</label>
-                <input type="text" class="form-control letra" placeholder="ingresar placa del carro" formControlName="placaCarro">
+              <div class="form-group ">
+                <label class="letra">GUARDAR CARRO</label>
+                <input type="text" class="form-control " placeholder="ingresar placa del carro" formControlName="placaCarro">
               </div >
             <button type="submit" class="btn btn-primary btn-block letra"  [disabled]="!carroForm.valid" >Guardar</button>
   
@@ -17,13 +17,13 @@
 <hr>
   <div class="container">
       <div class="row">
-        <div class="col">
+          <div class="col-md-4 col-md-offset-4 ">
             <form novalidate [formGroup]="motoForm" (ngSubmit)="onSubmit()">
              
-               <div class="form-group letra">
-                  <label>GUARDAR MOTO</label>
-                  <input type="text" class="form-control letra" placeholder="ingresar placa de la moto" formControlName="placaMoto">
-                    <input type="text" class="form-control letra" placeholder="cilindraje de la moto" formControlName="cilindraje">
+               <div class="form-group">
+                  <label class="letra">GUARDAR MOTO</label>
+                  <input type="text" class="form-control " placeholder="ingresar placa de la moto" formControlName="placaMoto">
+                    <input type="text" class="form-control " placeholder="cilindraje de la moto" formControlName="cilindraje">
                 </div>
              
               <button type="submit" class="btn btn-primary btn-block letra"  [disabled]="!motoForm.valid" >Guardar</button>

@@ -3,20 +3,20 @@
       <div class="col-md-4 col-md-offset-4 ">
       <form novalidate [formGroup]="facturaForm" (ngSubmit)="onSubmit()">
 
-        <div class="form-group letra">
-          <label>RETIRAR VEHICULO|</label>
-          <input type="text" class="form-control letra" placeholder="ingresar placa del vehiculo" formControlName="placaVehiculo">
+        <div class="form-group ">
+          <label class="letra">RETIRAR VEHICULO|</label>
+          <input type="text" class="form-control " placeholder="ingresar placa del vehiculo" formControlName="placaVehiculo">
         </div>
         <button type="submit" class="btn btn-primary btn-block letra" [disabled]="!facturaForm.valid">RETIRAR</button>
         <button type="button" class="btn btn-primary btn-block letra" (click)="redirectInicioPage()">
           <i class="fas fa-backward"></i> MENU INICIAL</button>
       <ul *ngIf="datosFactura!=null" style="margin-top: 10px">
           <label>FACTURA DEL VEHICULO</label>
-          <li class=" panel panel-primary"> PLACA :{{datosFactura.placa}}</li>
-          <li class=" panel panel-primary"> FECHA DE INGRESO :{{datosFactura.horaIngreso | date:'medium' }}</li>
-          <li class=" panel panel-primary">FECHA DE SALIDA :{{datosFactura.horaSalida | date:'medium'}}</li>
-          <li class=" panel panel-primary">TIEMPO EL PARQUEADEREO :{{datosFactura.tiempoDeParqueo}} HORA'S</li>
-          <li class=" panel panel-primary">PAGO TOTAL :{{datosFactura.pagoTotal}}</li>
+          <li class=" panel panel-primary"><i class="fas fa-pencil-alt"></i> PLACA :{{datosFactura.placa}}</li>
+          <li class=" panel panel-primary"><i class="fas fa-clock"></i> FECHA DE INGRESO :{{datosFactura.horaIngreso | date:'medium' }}</li>
+          <li class=" panel panel-primary"><i class="fas fa-clock"></i> FECHA DE SALIDA :{{datosFactura.horaSalida | date:'medium'}}</li>
+          <li class=" panel panel-primary"><i class="fas fa-clock"></i> TIEMPO EL PARQUEADEREO :{{datosFactura.tiempoDeParqueo}} HORA'S</li>
+          <li class=" panel panel-primary"><i class="far fa-money-bill-alt"></i> PAGO TOTAL :{{datosFactura.pagoTotal}}</li>
         </ul>
       </form>
     </div>
