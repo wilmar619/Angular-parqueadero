@@ -1,0 +1,15 @@
+.color{
+    color: darkslateblue;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    height: 30px;
+    width: 30px;
+ }
+ .centrar{
+     text-align: center;
+     margin-bottom: 20px;
+ }
+ .colorText{
+    color: darkslateblue;
+}

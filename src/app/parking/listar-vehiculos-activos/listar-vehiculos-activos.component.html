@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+        <header class="header">
+          <div class="row">
+            <div class="col-md-12 centrar">
+              <h1 class="letra colorText">VEHICULOS ACTIVOS</h1>
+            </div>
+          </div>
+        </header>
+        <div class="col-md-8 col-md-offset-2">
+        <table class="table panel panel-primary ">
+          <thead>
+          <tr class="letra colorText ">
+
+            <th class="centrar"><i class="fas fa-flag-checkered"></i>  TIPO DE VEHICULO</th>
+            <th class="centrar"><i class="fas fa-clipboard"></i>  PLACA</th>
+            <th class="centrar"><i class="fas fa-clock"></i>  HORA DE INGRESO</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let vehiculo of vehiculos">
+            <td *ngIf= " vehiculo.tipoVehiculo ==='carro'"><i class="fas fa-car color" ></i></td>
+            <td *ngIf= " vehiculo.tipoVehiculo ==='moto'"><i class="fas fa-motorcycle color" ></i></td>
+            <td class="centrar"><i class="fas fa-pencil-alt"></i>{{vehiculo.placa}}</td>
+            <td class="centrar"><i class="fas fa-clock"></i> {{vehiculo.horaIngreso | date:'medium'}}</td>
+            <td>
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+        <button type="button" class="btn btn-primary btn-block letra" (click)="redirectInicioPage()"><i class="fas fa-backward"></i>  MENU INICIAL</button>  
+      </div>
+

@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+      <div class="col">
+          <form novalidate [formGroup]="carroForm" (ngSubmit)="onSubmit()">
+           
+              <div class="form-group letra">
+                <label>RETIRAR CARRO</label>
+                <input type="text" class="form-control letra" placeholder="ingresar placa del vehiculo" formControlName="placaVehiculo">
+              </div>
+            <button type="submit" class="btn btn-primary btn-block letra"  [disabled]="!carroForm.valid" >RETIRAR</button>
+            <button type="button" class="btn btn-primary btn-block letra" (click)="redirectInicioPage()"><i class="fas fa-backward"></i>  MENU INICIAL</button>
+  
+          </form>
+      </div>
+    </div>
+  </div>

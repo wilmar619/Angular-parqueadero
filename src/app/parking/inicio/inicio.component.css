@@ -1,0 +1,16 @@
+.btn-mi-color {
+    color: #fff;
+    background-color: #152874;
+    border-color: #311482;
+}
+.btn-mi-color:focus,
+.btn-mi-color.focus {
+    color: #fff;
+    background-color: #7193f0d0;
+    border-color: #2f28b1;
+}
+.btn-mi-color:hover {
+    color: #fff;
+    background-color: #121024;
+    border-color: #010002;
+}
