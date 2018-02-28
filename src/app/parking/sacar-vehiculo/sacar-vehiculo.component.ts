@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Moto } from '../Moto';
 import { Carro } from '../Carro';
 import { Vehiculo } from '../vehiculo';
+import { Factura } from '../Factura';
 
 
 @Component({
@@ -15,29 +16,36 @@ import { Vehiculo } from '../vehiculo';
 })
 export class SacarVehiculoComponent implements OnInit {
 
-  placaVehiculo: Carro;
-  vehiculoForm: FormGroup;
-
+  facturaForm: FormGroup;
+  datosFactura: Factura;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
     private vigilanteService: VigilanteService) { }
 
   ngOnInit() {
-    this.vehiculoForm = new FormGroup({
-      placaCarro: new FormControl('', Validators.required)
+    this.facturaForm = new FormGroup({
+      placaVehiculo: new FormControl('', Validators.required)
     });
   }
 
   onSubmit(){
-    if (this.vehiculoForm.valid) {  
-      let placaVehiculo: Carro = new Carro(
-        this.vehiculoForm.controls['placaVehiculo'].value);
-      this.vigilanteService.sacarVehiculoByPlaca(placaVehiculo).subscribe();
+    if (this.facturaForm.valid) {  
+      this.vigilanteService.sacarVehiculoByPlaca(this.facturaForm.controls['placaVehiculo'].value).subscribe(
+
+        responde => {
+            this.datosFactura = responde;
+            console.log(this.datosFactura);
+          },
+          err => {
+            console.log(err);
+          }
+        );
+        alert("HA RETIRADO UN VEHICULO EXITOSAMENTE");
     }
-     
-   this.vehiculoForm.reset();
-   this.redirectInicioPage();
+
+   this.facturaForm.reset();
+ 
   }
   
   redirectInicioPage() {

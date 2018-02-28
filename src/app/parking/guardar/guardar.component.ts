@@ -43,6 +43,7 @@ export class GuardarComponent implements OnInit {
         let carro: Carro = new Carro(
         this.carroForm.controls['placaCarro'].value);
         this.vigilanteService.guardarCarro(carro).subscribe();
+        alert("CARRO INGRESADO CORRECTAMENTE");
 
      }
      if(this.motoForm.valid){
@@ -51,11 +52,12 @@ export class GuardarComponent implements OnInit {
         this.motoForm.controls['placaMoto'].value,
         this.motoForm.controls['cilindraje'].value);
         this.vigilanteService.guardarMoto(moto).subscribe();
+        alert("MOTO INGRESADO CORRECTAMENTE");
        
      }
       this.carroForm.reset();
       this.motoForm.reset();
-      this.router.navigate(['/inicio']);
+  
   }
   redirectInicioPage() {
     this.router.navigate(['/inicio']);

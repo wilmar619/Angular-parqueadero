@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 import { Moto } from './Moto';
 import { Carro } from './Carro';
 import { Vehiculo } from './vehiculo';
+import { Factura } from './Factura';
 
 
 @Injectable()
@@ -33,8 +34,9 @@ export class VigilanteService {
 
   }
 
-  sacarVehiculoByPlaca(placa: Carro): Observable<Carro> {
+  sacarVehiculoByPlaca(placa: string): Observable<Factura> {
     return this.http.post(this.sacarVehiculoUrl,placa)
+    .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 

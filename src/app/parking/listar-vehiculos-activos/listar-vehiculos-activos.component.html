@@ -21,8 +21,8 @@
           </thead>
           <tbody>
           <tr *ngFor="let vehiculo of vehiculos">
-            <td *ngIf= " vehiculo.tipoVehiculo ==='carro'"><i class="fas fa-car color" ></i></td>
-            <td *ngIf= " vehiculo.tipoVehiculo ==='moto'"><i class="fas fa-motorcycle color" ></i></td>
+            <td *ngIf= " vehiculo.tipoVehiculo =='carro'"><i class="fas fa-car color" ></i></td>
+            <td *ngIf= " vehiculo.tipoVehiculo =='moto'"><i class="fas fa-motorcycle color" ></i></td>
             <td class="centrar"><i class="fas fa-pencil-alt"></i>{{vehiculo.placa}}</td>
             <td class="centrar"><i class="fas fa-clock"></i> {{vehiculo.horaIngreso | date:'medium'}}</td>
             <td>
