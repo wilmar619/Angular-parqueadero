@@ -22,6 +22,10 @@ export class GuardarComponent implements OnInit {
   carroForm: FormGroup;
   motoForm: FormGroup;
 
+  capturarErroresCarro:any;
+  capturarErroresMoto:any;
+
+
   constructor(private route: ActivatedRoute,
               private router: Router,
               private vigilanteService: VigilanteService) { }
@@ -42,17 +46,30 @@ export class GuardarComponent implements OnInit {
 
         let carro: Carro = new Carro(
         this.carroForm.controls['placaCarro'].value);
-        this.vigilanteService.guardarCarro(carro).subscribe();
-        alert("CARRO INGRESADO CORRECTAMENTE");
-
+        this.vigilanteService.guardarCarro(carro).subscribe(
+          responde => {
+            alert("El Carro fue agregado exitosamente");
+          },
+          (error: Response) => {
+            this.capturarErroresCarro = error.json();
+            alert(this.capturarErroresCarro.message);
+          }
+        );
      }
      if(this.motoForm.valid){
 
       let moto: Moto = new Moto(
         this.motoForm.controls['placaMoto'].value,
         this.motoForm.controls['cilindraje'].value);
-        this.vigilanteService.guardarMoto(moto).subscribe();
-        alert("MOTO INGRESADO CORRECTAMENTE");
+        this.vigilanteService.guardarMoto(moto).subscribe(
+          responde => {
+            alert("La Moto fue agregado exitosamente");
+          },
+          (error: Response) => {
+            this.capturarErroresMoto = error.json();
+            alert(this.capturarErroresMoto.message);
+          }
+        );
        
      }
       this.carroForm.reset();

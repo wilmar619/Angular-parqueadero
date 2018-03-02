@@ -18,6 +18,7 @@ export class SacarVehiculoComponent implements OnInit {
 
   facturaForm: FormGroup;
   datosFactura: Factura;
+  capturarErrores: any;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -32,16 +33,16 @@ export class SacarVehiculoComponent implements OnInit {
   onSubmit(){
     if (this.facturaForm.valid) {  
       this.vigilanteService.sacarVehiculoByPlaca(this.facturaForm.controls['placaVehiculo'].value).subscribe(
-
         responde => {
             this.datosFactura = responde;
             console.log(this.datosFactura);
+            alert("el vehiculo fue retirado exitosamente");
           },
-          err => {
-            console.log(err);
+          (error: Response) => {
+            this.capturarErrores = error.json();
+            alert(this.capturarErrores.message);
           }
         );
-        alert("HA RETIRADO UN VEHICULO EXITOSAMENTE");
     }
 
    this.facturaForm.reset();

@@ -22,22 +22,18 @@ export class VigilanteService {
   constructor(private http: Http) { }
 
 
-  guardarCarro(carro: Carro): Observable<Carro> {
-    return this.http.post(this.carroUrl, carro)
-      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
-
+  guardarCarro(carro: Carro) {
+    return this.http.post(this.carroUrl, carro);
   }
 
-  guardarMoto(moto: Moto): Observable<Moto> {
+  guardarMoto(moto: Moto) {
     return this.http.post(this.motoUrl, moto)
-      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
-
+      
   }
 
   sacarVehiculoByPlaca(placa: string): Observable<Factura> {
     return this.http.post(this.sacarVehiculoUrl,placa)
     .map((res:Response) => res.json())
-      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
   findAll(): Observable<Vehiculo[]>  {
